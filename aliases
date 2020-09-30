@@ -1,0 +1,12 @@
+
+
+### SYSTEM ###
+alias shutdown='sudo shutdown now'
+alias restart='sudo reboot'
+alias suspend='sudo pm-suspend'
+
+
+### NVIM ###
+alias vim='nvim'
+alias vi='nvim'
+
