@@ -1,9 +1,13 @@
 #! /bin/sh
 
+# clear rules
+bspc rule -r "*"
+
 sxhkd &
 panel &
 dunst &
 compton -f -D 3 &
+feh --bg-fill $HOME/Pictures/Wallpaper/bg.jpg
 
 $HOME/.config/polybar/launch.sh
 
@@ -11,7 +15,7 @@ bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
 bspc config merge_overlapping_monitors true
 
-bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor -d 1 'Code' 3 4 5 6 7 8 9 10
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -20,7 +24,12 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      false
 
-bspc rule -a google-chrome desktop='Web' focus=on
-bspc rule -a teams desktop='Chat' state=floating
+bspc rule -a -o google-chrome desktop=1 focus=on
+bspc rule -a teams desktop=4 state=floating
+bspc rule -a org.gnome.Nautilus state=floating
+bspc rule -a 'Org.gnome.Nautilus' state=floating
 # bspc rule -a Screenkey manage=off
 # bspc rule -a Gimp desktop='^8' state=floating follow=on
+
+bspc rule -a dropdown sticky=on state=floating hidden=on
+alacritty --class dropdown -e "zsh -i" &
